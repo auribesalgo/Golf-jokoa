@@ -1,4 +1,4 @@
-$('.stage').css('height', $(window).height());
+$('.stage').css('height', $('canvas').height());
 
 var 
     // Numbers
@@ -14,6 +14,10 @@ var
     bird_y,
     arbola_x,
     arbola_y,
+    ura_x,
+    ura_y,
+    bandera_x,
+    bandera_y,
 
     // Booleans
     bird_grabbed = false,
@@ -24,18 +28,25 @@ var
     $_pertsona = $('.pertsona'),
     $_bird = $('.bird'),
     $_arbola = $('.arbola'),
+    $_area = $('.area'),
+    $_bandera = $('.bandera'),
     
     // Functions
     reset = function(){
      
       arbola_x = $('canvas').width() * 0.4;
       arbola_y = $('canvas').height() * 0.3;
+      area_x = $('canvas').width() * 0.25;                 
+      area_y = $('canvas').height() * 0.932;
       pertsona_x = $('canvas').width() * 0.01;
       pertsona_y = $('canvas').height() * 0.6;
       bird_x = $('canvas').width() * 0.1;
       bird_y = $('canvas').height() * 0.9;
+      bandera_x = $('canvas').width() * 0.83;
+      bandera_y = $('canvas').height() * 0.62; 
       cat_x = bird_x;
       cat_y = bird_y;
+     
       vel_x = 0;
       vel_y = 0;
       flung = false;
@@ -53,7 +64,7 @@ $_bird.mousedown(function(){
   
 });
 
-$('body').mousemove(function(e){
+$(window).mousemove(function(e){
   
   if(bird_grabbed){
     
@@ -63,7 +74,7 @@ $('body').mousemove(function(e){
   
 });
 
-$('body').mouseup(function(e){
+$(window).mouseup(function(e){
   
   if(bird_grabbed){ 
     vel_x = (cat_x - bird_x)/10;
@@ -75,8 +86,6 @@ $('body').mouseup(function(e){
   bird_grabbed = false;
   
 });
-
-
 
 setInterval(function(){
   
@@ -118,7 +127,6 @@ setInterval(function(){
     vel_y += g;
   } 
 
-
   
   $_bird.css({
 
@@ -139,26 +147,24 @@ setInterval(function(){
     top : arbola_y
 
   });
+   $_area.css({
+
+    left : area_x,
+    top : area_y
+
+  });
+
+   $_bandera.css({
+
+    left : bandera_x,
+    top : bandera_y
+
+  });
   
 }, 12);
 
-$('body').keydown(function(){
+$('canvas').keydown(function(){
   
   reset();
   
 });
-
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    bird();
-    
-    if(x + dx > canvas.width-17 || x + dx < 17) {
-        dx = -dx;
-    }
-    if(y + dy > canvas.height-17 || y + dy < 17) {
-        dy = -dy;
-    }
-    
-    x += dx;
-    y += dy;
-}
