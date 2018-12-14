@@ -38,6 +38,26 @@ canvas { margin: 0; overflow: hidden; }
   background: url('arbola.png');
 }
 
+.area
+{
+  z-index: 2;
+  background: #ddd;
+  width: 200px;
+  height: 35px;
+  position: absolute;
+  background: url('area.png');
+}
+
+.bandera
+{
+  z-index: 2;
+  background: #ddd;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background: url('bandera.png');
+}
+
 #miCanvas{
   border:solid 1px;
   background-image: url('Fondo.png');
