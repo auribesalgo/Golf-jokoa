@@ -1,0 +1,44 @@
+canvas { margin: 0; overflow: hidden; }
+
+.stage
+{
+  background: #fff;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-image: url('Fondo.png');
+}
+
+.pertsona
+{
+  z-index: 2;
+  background: #ddd;
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  background: url('pertsona.png');
+}
+
+.bird
+{
+  z-index: 2;
+  background: #ddd;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  background: url('Pelota.png');
+}
+
+.arbola
+{
+  z-index: 2;
+  background: #ddd;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background: url('arbola.png');
+}
+
+#miCanvas{
+  border:solid 1px;
+  background-image: url('Fondo.png');
+}
